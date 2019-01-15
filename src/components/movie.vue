@@ -437,7 +437,6 @@
 		background: #fff;
 	}
 	
-	.coming-list-item {}
 	
 	.group-date {
 		padding: 12px 15px 0;

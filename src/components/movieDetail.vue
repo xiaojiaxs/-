@@ -583,7 +583,6 @@
 		outline: none;
 	}
 	
-	.introduction-content {}
 	
 	.introduction-content-text {
 		font-size: 16px;
@@ -792,7 +791,6 @@
 		height: 70px;
 	}
 	
-	.link-group {}
 	
 	.link-group-video {
 		display: inline-block;
@@ -1102,7 +1100,6 @@
 		width: calc(100% - 45px);
 	}
 	
-	.comment-list-header {}
 	
 	.comment-list-header span {
 		color: #333;

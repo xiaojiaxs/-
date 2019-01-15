@@ -29,14 +29,17 @@ const store = new Vuex.Store({
 
 	//1.state 定义vuex中存放的数据
 	state: {
-		tabIndex: 0,
+		tabIndex: '',
 
 		theme: "light",
 
 		//城市
 		selectCity: city,
 
-		isLogin: isLogin
+		isLogin: isLogin,
+
+		//纪录 路径
+		path:''
 	},
 
 	//2.getters  添加获取数据的方法,  
@@ -55,6 +58,10 @@ const store = new Vuex.Store({
 
 		getIsLogin(state) {
 			return state.isLogin;
+		},
+
+		getPath(state) {
+		  return state.path;
 		}
 	},
 
@@ -75,6 +82,10 @@ const store = new Vuex.Store({
 
 		setIsLogin(state, isLogin) {
 			state.isLogin = isLogin;
+		},
+
+		setPath(state,path) {
+		  	state.path = path;
 		}
 	},
 

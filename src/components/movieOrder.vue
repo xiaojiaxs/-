@@ -78,9 +78,6 @@
 		background: #f3f3f3;
 	}
 	
-	.order-list {}
-	
-	.order-list ul {}
 	
 	.order-list ul li {
 		background-color: #fff;

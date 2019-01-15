@@ -401,18 +401,12 @@
 		z-index: 1;
 	}
 	
-	.seats-wrap {
-		/*transform: scale(0.3);
-		margin-top:-190px;
-		margin-left: -380px;*/
-	}
 	
 	.wrap {
 		display: inline-block;
 		padding: 6px 3px;
 	}
 	
-	.wrap.active {}
 	
 	.seat {
 		width: 40px;

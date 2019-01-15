@@ -73,11 +73,7 @@
 					},
 					data => {
 						if(data.status == 0) {
-//							layer.open({
-//								content: "token销毁失败(message=" + data.message + ")",
-//								btn: "我知道了"
-//							});
-							console.log(1)
+							//console.log(1)
 						}
 					}
 				);

@@ -271,8 +271,6 @@
 	}
 	/*轮播图*/
 	
-	.cinema-swiper {}
-	
 	.swiper-container {
 		padding: 20px 15px 20px 5px;
 		transform: translateZ(0);
@@ -288,7 +286,6 @@
 		opacity: .55;
 	}
 	
-	.swiper-wrapper {}
 	
 	.swiper-slide {
 		margin-left: 10px;
@@ -325,7 +322,6 @@
 		font-weight: 700;
 	}
 	
-	.movie-info-title span:nth-of-type(1) {}
 	
 	.movie-info-title span:nth-of-type(2) {
 		color: #ffb400;
@@ -373,7 +369,6 @@
 	}
 	/*seat区域*/
 	
-	.seat-area {}
 	
 	.vip-tips {
 		background-color: #fff5ea;
@@ -388,7 +383,7 @@
 	}
 	
 	.label {
-		display: inline-block;
+		display: block;
 		background-color: #ff941a;
 		border-radius: 2px;
 		font-size: 10px;
@@ -425,13 +420,11 @@
 		transform: rotate(135deg);
 	}
 	
-	.seat-inner-area {}
 	
 	.seat-list {
 		background: #fff;
 	}
 	
-	.seat-list ul {}
 	
 	.seat-list ul li {
 		padding: 17px 12.5px;
@@ -442,7 +435,6 @@
 		display: flex;
 	}
 	
-	.seat-time {}
 	
 	.seat-time-begin {
 		font-size: 20px;
@@ -611,7 +603,6 @@
 		margin-left: 15px;
 	}
 	
-	.set-meal-list ul {}
 	
 	.set-meal-list ul li {
 		position: relative;
@@ -625,7 +616,7 @@
 	}
 	
 	.set-meal-list ul li a img {
-		display: inline-block;
+		display: block;
 		width: 92px;
 		height: 92px;
 		float: left;

@@ -195,8 +195,6 @@
 		color: #000;
 	}
 	
-	.cinema-title span:nth-of-type(1) {}
-	
 	.cinema-title span:nth-of-type(2) {
 		font-size: 18px;
 		color: #f03d37;

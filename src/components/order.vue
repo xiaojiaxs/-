@@ -195,7 +195,6 @@
 		font-size: 15px;
 	}
 	
-	.order-detail-list {}
 	
 	.order-detail-item {
 		display: flex;
@@ -307,7 +306,6 @@
 		font-size: 15px;
 	}
 	
-	.phone-area span:nth-of-type(1) {}
 	
 	.phone-area span:nth-of-type(2) {
 		display: block;

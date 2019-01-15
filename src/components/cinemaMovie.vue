@@ -222,7 +222,6 @@
 		display: flex;
 	}
 	
-	.poster-img {}
 	
 	.poster-img img {
 		width: 110px;
@@ -399,8 +398,6 @@
 		font-size: 16px;
 		color: #000;
 	}
-	
-	.cinema-title span:nth-of-type(1) {}
 	
 	.cinema-title span:nth-of-type(2) {
 		font-size: 18px;

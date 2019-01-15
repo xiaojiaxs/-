@@ -269,8 +269,6 @@
 		overflow-y: auto;
 	}
 	
-	.item-box {}
-	
 	.item-title {
 		padding-left: 15px;
 		line-height: 30px;

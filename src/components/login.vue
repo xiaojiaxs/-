@@ -229,11 +229,27 @@
 				this.accountLoginSuccess = false
 				this.mobileLoginSuccess = false
 
-				//跳转到mine页面
-				//登录一般把 push变成replace
-				this.$router.replace("/mine");
+				//从注册界面到登录界面，那么登录成功后跳到mine界面，push变成replace
+				//从其他界面到登录界面，那么登录成功后返回之前界面
+				if(this.$store.getters.getPath=="/reg"){
+					this.$router.replace("/mine");
+				}else{
+					this.$router.go(-1)
+				}
 
 			},
+		},
+		beforeRouteEnter(to, from, next) {
+			var path = from.path //path为定义的变量，不是vue的data定义的变量，当前生命周期data还未初始化
+			//console.log(path)
+			
+			next(vm => {
+				//因为当钩子执行前，组件实例还没被创建
+				// vm 就是当前组件的实例相当于上面的 this，所以在 next 方法里你就可以把 vm 当 this 来用了。
+				//console.log(vm);//当前组件的实例
+				vm.$store.commit("setPath", path);
+				//console.log(vm.$store.getters.getPath)
+			});
 		}
 	}
 </script>
@@ -327,7 +343,6 @@
 	}
 	/*手机登录*/
 	
-	.mobil-login {}
 	
 	.phone {
 		border: 0;

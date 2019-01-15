@@ -15,7 +15,7 @@
 				</div>
 				<!--历史纪录-->
 				<div v-if="isShowHistory" class="search-history" style="">
-					<div v-for="(item,index) in movie" class="history-item" :data-index="index">
+					<div v-for="(item,index) in movie" :key="index" class="history-item" :data-index="index">
 						<span class="history-icon"></span>
 						<span @click="dealHistorySearch(index)" class="word one-line">{{item}}</span>
 						<div @click="dealDelItem(index)" class="del-word"></div>

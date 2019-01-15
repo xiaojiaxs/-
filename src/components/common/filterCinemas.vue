@@ -26,7 +26,7 @@
 					<div v-if="buttonIndex==1" class="wrapper">
 						<div class="wrapper-button">
 							<ul v-if="filterCinemas.district">
-								<li v-for="(item,index) in filterCinemas.district.subItems" 
+								<li v-for="(item,index) in filterCinemas.district.subItems" :key="index" 
 									:class="{active:selectDistrictId == item.id}"
 								 	@click="dealSelectDistrict(item,index)">
 									{{item.name}}({{item.count}})
@@ -35,7 +35,7 @@
 						</div>
 						<div class="wrapper-content">
 							<ul>
-								<li v-for="(item,index) in filterCinemas.district.subItems[selectDistrictIndex].subItems" 
+								<li v-for="(item,index) in filterCinemas.district.subItems[selectDistrictIndex].subItems" :key="index" 
 									:class="{active:selectAreaId == item.id}"
 								 	@click="dealSelectArea(item,index)">
 									<span v-show="selectAreaId == item.id"></span>
@@ -48,7 +48,7 @@
 					<div v-if="buttonIndex==2" class="wrapper">
 						<div class="wrapper-button">
 							<ul v-if="filterCinemas.subway">
-								<li v-for="(item,index) in filterCinemas.subway.subItems" 
+								<li v-for="(item,index) in filterCinemas.subway.subItems" :key="index" 
 									:class="{active:selectLineId == item.id}" 
 									@click="dealSelectLine(item,index)">
 									{{item.name}}({{item.count}})
@@ -57,7 +57,7 @@
 						</div>
 						<div class="wrapper-content">
 							<ul>
-								<li v-for="(item,index) in filterCinemas.subway.subItems[selectLineIndex].subItems" 
+								<li v-for="(item,index) in filterCinemas.subway.subItems[selectLineIndex].subItems" :key="index" 
 									:class="{active:selectStationId == item.id}"
 								 	@click="dealSelectStation(item,index)">
 									<span v-show="selectStationId == item.id"></span>
@@ -75,7 +75,7 @@
 		<div class="brind-box" v-if="isShowBox==2">
 			<div class="brind-content" v-if="filterCinemas.brand != undefined">
 				<div class="brind-item" 
-					v-for="(item,index) in filterCinemas.brand.subItems" 
+					v-for="(item,index) in filterCinemas.brand.subItems" :key="index" 
 					@click="dealSelectBrand(item.id,item.name)" 
 					:class="{active:item.id == selectBrandId}">
 					<span v-show="item.id == selectBrandId"></span>
@@ -93,7 +93,7 @@
 						<div class="feature-list" v-if="filterCinemas.service != undefined">
 							
 							<div class="feature-item" 
-								v-for="(item,index) in filterCinemas.service.subItems"
+								v-for="(item,index) in filterCinemas.service.subItems" :key="index"
 								:class="{active:item.id==tempSelectServiceId}" 
 								@click="tempSelectServiceId = item.id">
 								{{item.name}}
@@ -104,7 +104,7 @@
 					<div class="feature-content">
 						<div class="feature-title">特殊厅</div>
 						<div class="feature-list" v-if="filterCinemas.hallType != undefined">
-							<div class="feature-item" v-for="(item,index) in filterCinemas.hallType.subItems"
+							<div class="feature-item" v-for="(item,index) in filterCinemas.hallType.subItems" :key="index"
 								:class="{active:item.id==tempSelectHallTypeId}"
 							 	@click="tempSelectHallTypeId = item.id">
 								{{item.name}}
@@ -377,7 +377,6 @@
 		overflow: scroll;
 	}
 	
-	.wrapper-button ul {}
 	
 	.wrapper-button ul li {
 		height: 44px;
@@ -400,8 +399,6 @@
 		overflow: scroll;
 		background: #f5f5f5;
 	}
-	
-	.wrapper-content ul {}
 	
 	.wrapper-content ul li {
 		position: relative;
@@ -505,7 +502,6 @@
 	.brind-item span:nth-of-type(3) {
 		display: inline-block;
 		float: right;
-		
 		font-size: 12px;
 	}
 	/*特色*/

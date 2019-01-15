@@ -1,7 +1,12 @@
 <template>
 	<div class="order">
 		<navbar title="支付订单" type="detail"></navbar>
-		<div class="detail-content">
+		<!--预加载-->
+		<div class="preloading" v-if="preloading">
+			<img src="../assets/img/loading.gif" alt="" />
+			<span>正在加载...</span>
+		</div>
+		<div class="detail-content" v-if="!preloading">
 			<!--支付剩余时间-->
 			<div class="count-down">
 				支付剩余时间:
@@ -299,8 +304,9 @@
 				ShowVoucherBox: false,
 				ShowEndorseBox: false,
 				ShowPriceDetailBox: false,
-				
 
+				preloading:true,
+			
 				orderData: {}
 
 			}
@@ -309,10 +315,6 @@
 			this.add()
 		},
 		created() {
-			layer.open({
-				content: "座位预定成功，请仔细核对场次信息，并在右上角倒计时结束前完成支付，购买后无法退换",
-				btn: "我知道了"
-			});
 
 			var orderId = this.$route.params.id;
 
@@ -326,6 +328,11 @@
 
 			this.request.getOrderInfo(dict, data => {
 				this.orderData = data.data;
+				this.preloading=false
+				layer.open({
+					content: "座位预定成功，请仔细核对场次信息，并在右上角倒计时结束前完成支付，购买后无法退换",
+					btn: "我知道了"
+				});
 			});
 		},
 		methods: {
@@ -490,8 +497,7 @@
 		transform: rotate(-45deg);
 		border-left: none;
 		border-top: none;
-		display: inline-block;
-		vertical-align: middle;
+		display: block;
 		margin: 18px 5px 0 5px;
 	}
 	
@@ -735,8 +741,6 @@
 		vertical-align: middle;
 	}
 	
-	.count span:nth-of-type(1) {}
-	
 	.count span:nth-of-type(2) {
 		height: 14px;
 		height: 25px;
@@ -746,7 +750,6 @@
 		text-align: center;
 	}
 	
-	.count span:nth-of-type(3) {}
 	
 	.all-food {
 		line-height: 45px;
@@ -839,7 +842,6 @@
 		margin-bottom: 4px;
 	}
 	
-	.accounts-button {}
 	
 	.accounts-button button {
 		line-height: 45px;
@@ -946,7 +948,6 @@
 		overflow-y: auto;
 	}
 	
-	.endorse-content ul {}
 	
 	.endorse-content ul li {
 		border-bottom: 1px solid #eaeaea;
@@ -1025,7 +1026,6 @@
 		border-bottom: 1px solid #eaeaea;
 	}
 	
-	.price-detail-content ul {}
 	
 	.price-detail-content ul li {
 		padding: 5px 15px 13px 0;
@@ -1055,5 +1055,20 @@
 	
 	.price-item-right span {
 		color: #999;
+	}
+	/*预加载*/
+	
+	.preloading {
+		text-align: center;
+		line-height: 50px;
+		font-size: 16px;
+		padding-top: 50px;
+		background: #fff;
+	}
+	
+	.preloading img {
+		width: 30px;
+		height: 30px;
+		vertical-align: middle;
 	}
 </style>
