@@ -141,6 +141,7 @@
 
 						//保存localStorage
 						//跳转界面
+						//执行登录成功方法
 						this.loginSuccess(data.data);
 					}
 				);
@@ -211,6 +212,7 @@
 
 						//保存localStorage
 						//跳转界面
+						//执行登录成功方法
 						this.loginSuccess(data.data);
 					}
 				);

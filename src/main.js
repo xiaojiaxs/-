@@ -33,6 +33,10 @@ Vue.use(VueLazyLoad, {
 	attempt: 3
 })
 
+//图片缩略
+import VuePreview from 'vue2-preview'
+Vue.use(VuePreview)
+
 //注册全局组件
 import navbar from '@/components/common/navbar'
 import tabbar from '@/components/common/tabbar'

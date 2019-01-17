@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<navbar title="猫眼电影" type="detail"></navbar>
+		<navbar title="UME国际影城(双井店)" type="detail"></navbar>
 		<div class="detail-content">
 			<!--地图-->
 			<div id="allmap" :style="mapStyle"></div>

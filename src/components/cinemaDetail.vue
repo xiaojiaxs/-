@@ -24,9 +24,12 @@
 				<div class="cinema-swiper">
 					<!--轮播图-->
 					<div class="swiper-container">
+						<div class="post-bg">
+							<img :src="postBackgroundImage | wh128x180" alt="">
+						</div>
 						<div class="post-bg-filter"></div>
 						<div class="swiper-wrapper">
-							<div v-for="(item,index) in movies" :key="index" class="swiper-slide">
+							<div v-for="(item,index) in movies" :key="index" class="swiper-slide" @click="dealPostBackgroundImage(index)">
 								<img :src="item.img|wh128x180">
 							</div>
 						</div>
@@ -140,11 +143,11 @@
 
 <script>
 	export default {
-		name: 'HelloWorld',
+		name: 'cinemaDetail',
 		data() {
 			return {
 				select: 0,
-
+				postBackgroundImage:'',
 				detail: {},
 				movies: [],
 				dealList: [],
@@ -155,6 +158,7 @@
 			}
 		},
 		created() {
+
 			var id = this.$route.params.id //接受cinema传过来的id
 
 			var self = this
@@ -167,6 +171,8 @@
 				this.movies = data.showData.movies
 				this.dealList = data.dealList.divideDealList[0].dealList
 				//console.log(this.dealList)
+				// 加载初始背景
+				this.postBackgroundImage = data.showData.movies[0].img
 
 				this.preloading = false
 				this.showContent = true
@@ -211,6 +217,10 @@
 				}
 				this.$router.push('/seatingPlan');
 				
+			},
+			dealPostBackgroundImage(index){
+				this.postBackgroundImage = this.movies[index].img
+				//console.log(this.postBackgroundImage)
 			}
 		},
 	}
@@ -274,6 +284,23 @@
 	.swiper-container {
 		padding: 20px 15px 20px 5px;
 		transform: translateZ(0);
+		position: relative;
+	}
+	.post-bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		overflow: hidden;
+		-webkit-filter: blur(30px);
+		filter: blur(30px);
+		background-position-y: 40%;
+	}
+	.post-bg img{
+		width: 100%;
+		height: 100%;
 	}
 	
 	.post-bg-filter {

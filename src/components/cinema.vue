@@ -38,8 +38,11 @@
 								<span>{{item.distance}}</span>
 							</div>
 							<div class="cinema-label-block">
+								<div v-if="item.tag.allowRefund==1" class="hall-type">退</div>
+								<div v-if="item.tag.endorse==1" class="hall-type">改签</div>
 								<div v-if="item.tag.snack==1" class="snack">小吃</div>
-								<div class="hall-type">IMAX厅</div>
+								<div v-if="item.tag.vipTag!=undefined" class="snack">折扣卡</div>
+								<div v-if="item.tag.hallType" class="hall-type">{{item.tag.hallType[0]}}</div>
 							</div>
 							<div v-if="item.promotion.cardPromotionTag!=undefined" class="cinema-discount-block">
 								<div class="cinema-discount-block-img">
@@ -225,7 +228,6 @@
 	}
 	
 	.cinema-label-block {
-		height: 17px;
 		line-height: 17px;
 		margin-top: 4px;
 		margin-bottom: 4px;
@@ -241,6 +243,10 @@
 		line-height: 15px;
 		border-radius: 2px;
 		font-size: .6rem;
+		margin-left: 5px;
+	}
+	.cinema-label-block>div:first-child{
+		margin:0;
 	}
 	
 	.snack {
@@ -251,7 +257,7 @@
 	.hall-type {
 		color: #589daf;
 		border: 1px solid #589daf;
-		margin-left: 5px;
+		
 	}
 	
 	.cinema-discount-block {

@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<navbar :title="detailMovie.nm?detailMovie.nm:'猫眼电影'" type="detail"></navbar>
-
+		
 		<!--预加载-->
 		<div class="preloading" v-if="preloading">
 			<img src="../assets/img/loading.gif" alt="" />
@@ -26,9 +26,9 @@
 							</div>
 							<div class="movie-type">
 								<span>{{detailMovie.cat}}</span>
-								<!--<div class="movie-type-img">
+								<!-- <div class="movie-type-img">
 									<img src="../assets/img/type.png" alt="" />
-								</div>-->
+								</div> -->
 							</div>
 							<div class="movie-src">{{detailMovie.src}}/{{detailMovie.dur}}分钟</div>
 							<div class="movie-date">{{detailMovie.pubDesc}}</div>
@@ -41,7 +41,7 @@
 			</div>
 			<div class="filter-area">
 				<!--时间选择-->
-				<div class="show-days" :class="showFilter==true?'fixed':''">
+				<div class="show-days" :class="fixed==true?'fixed':''">
 					<div class="time-scroll">
 						<ul class="time-line" id="time-line">
 							<li v-for="(item,index) in showDays.dates" :key="index" @click="dealChosen(item,index)" :class="{'chosen':chosen==index}">
@@ -51,13 +51,13 @@
 					</div>
 				</div>
 				<!--影院選擇-->
-				<div class="filter-cinema" :class="showFilter==true?'fixed':''">
+				<div class="filter-cinema" :class="fixed==true?'fixed':''">
 					<!--影院过滤组件-->
 					<filterCinemas @showIndex="dealshowIndex"></filterCinemas>
 				</div>
 			</div>
 			<!--影院列表-->
-			<div class="cinema-list" :class="showFilter==true?'fixed':''">
+			<div class="cinema-list" :class="fixed==true?'fixed':''">
 				<div @click="$router.push('/cinemaDetail/'+item.id+'/'+item.nm)" class="cinema-list-item" v-for="(item,index) in cinemas" :key="index">
 					<div class="cinema-title">
 						<span>{{item.nm}}</span>
@@ -69,8 +69,11 @@
 						<span>{{item.distance}}</span>
 					</div>
 					<div class="cinema-label-block">
+						<div v-if="item.tag.allowRefund==1" class="hall-type">退</div>
+						<div v-if="item.tag.endorse==1" class="hall-type">改签</div>
 						<div v-if="item.tag.snack==1" class="snack">小吃</div>
-						<div class="hall-type">IMAX厅</div>
+						<div v-if="item.tag.vipTag!=undefined" class="snack">折扣卡</div>
+						<div v-if="item.tag.hallType" class="hall-type">{{item.tag.hallType[0]}}</div>
 					</div>
 					<div v-if="item.promotion.cardPromotionTag!=undefined" class="cinema-discount-block">
 						<div class="cinema-discount-block-img">
@@ -101,7 +104,7 @@
 				preloading: true,
 				showContent: false,
 				
-				showFilter:false
+				fixed:false
 
 			}
 		},
@@ -160,13 +163,13 @@
 				var scrollTop = document.documentElement.scrollTop
 
 				if(showIndex > 0) {
-					this.showFilter=true
+					this.fixed=true
 
 				}else{
 					if(scrollTop > 188) {
-						this.showFilter=true
+						this.fixed=true
 					} else {
-						this.showFilter=false
+						this.fixed=false
 					}
 				}
 			}
@@ -429,7 +432,6 @@
 	}
 	
 	.cinema-label-block {
-		height: 17px;
 		line-height: 17px;
 		margin-top: 4px;
 		margin-bottom: 4px;
@@ -445,6 +447,10 @@
 		line-height: 15px;
 		border-radius: 2px;
 		font-size: .6rem;
+		margin-left: 5px;
+	}
+	.cinema-label-block>div:first-child{
+		margin:0;
 	}
 	
 	.snack {
@@ -455,7 +461,7 @@
 	.hall-type {
 		color: #589daf;
 		border: 1px solid #589daf;
-		margin-left: 5px;
+		
 	}
 	
 	.cinema-discount-block {

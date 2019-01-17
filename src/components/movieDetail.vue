@@ -3,7 +3,7 @@
 		<navbar :title="detailMovie.nm?detailMovie.nm:'猫眼电影'" type="detail"></navbar>
 		<!--预加载-->
 		<div class="preloading" v-if="preloading">
-			<img src="../assets/img/loading.gif" alt="" />
+			<img src="../assets/img/loading.gif" alt>
 			<span>正在加载...</span>
 		</div>
 		<div class="detail-content" v-if="showContent">
@@ -13,19 +13,19 @@
 				<div class="poster"></div>
 				<div class="movie-detail-box">
 					<div class="poster-img">
-						<img :src="detailMovie.img|wh128x180" alt="" />
-						<img class="play-img" src="../assets/img/play.png" alt="" />
+						<img :src="detailMovie.img|wh128x180" alt>
+						<img class="play-img" src="../assets/img/play.png" alt>
 					</div>
 					<div class="movie-content">
 						<div class="movie-title">{{detailMovie.nm}}</div>
 						<div class="movie-name">{{detailMovie.enm}}</div>
 						<div class="movie-score">
 							<div class="movie-score-rating">
-								<img src="../assets/img/star-full-new.png" alt="" />
-								<img src="../assets/img/star-full-new.png" alt="" />
-								<img src="../assets/img/star-full-new.png" alt="" />
-								<img src="../assets/img/star-full-new.png" alt="" />
-								<img src="../assets/img/star-empty-new.png" alt="" />
+								<img src="../assets/img/star-full-new.png" alt>
+								<img src="../assets/img/star-full-new.png" alt>
+								<img src="../assets/img/star-full-new.png" alt>
+								<img src="../assets/img/star-full-new.png" alt>
+								<img src="../assets/img/star-empty-new.png" alt>
 								<span>{{detailMovie.sc}}</span>
 							</div>
 							<div class="movie-score-number">({{detailMovie.vnum}}万人评分)</div>
@@ -34,7 +34,7 @@
 							<span>{{detailMovie.cat}}</span>
 							<!--<div class="movie-type-img">
 								<img src="../assets/img/type.png" alt="" />
-							</div>-->
+              				</div>-->
 						</div>
 						<div class="movie-src">{{detailMovie.src}}/{{detailMovie.dur}}分钟</div>
 						<div class="movie-date">{{detailMovie.pubDesc}}</div>
@@ -48,9 +48,7 @@
 						<button>特惠购票</button>
 					</div>
 					<div class="introduction-content">
-						<div class="introduction-content-text" :class="{active:showDetail==1}">
-							{{detailMovie.dra}}
-						</div>
+						<div class="introduction-content-text" :class="{active:showDetail==1}">{{detailMovie.dra}}</div>
 						<div class="introduction-content-button">
 							<span @click="dealShow" :class="{active:showDetail==1}"></span>
 						</div>
@@ -60,7 +58,7 @@
 				<div class="tips-area">
 					<div class="tips-title">观影小贴士</div>
 					<div class="tips-content">
-						<img src="../assets/img/tips.png" alt="" />
+						<img src="../assets/img/tips.png" alt>
 						<span>请在70分钟跟随主角一起戴上3D眼镜</span>
 					</div>
 				</div>
@@ -70,48 +68,47 @@
 						<ul>
 							<li>
 								<router-link to="/starDetail">
-									<img src="../assets/img/playing.jpg" alt="" />
+									<img src="../assets/img/playing.jpg" alt>
 									<span>张艾嘉</span>
 									<span>白猫妈妈 / 红发女人</span>
 								</router-link>
 							</li>
 							<li>
 								<a href="javascript:;">
-									<img src="../assets/img/playing.jpg" alt="" />
+									<img src="../assets/img/playing.jpg" alt>
 									<span>张艾嘉</span>
 									<span>白猫妈妈 / 红发女人</span>
 								</a>
 							</li>
 							<li>
 								<a href="javascript:;">
-									<img src="../assets/img/playing.jpg" alt="" />
+									<img src="../assets/img/playing.jpg" alt>
 									<span>张艾嘉</span>
 									<span>白猫妈妈 / 红发女人</span>
 								</a>
 							</li>
 							<li>
 								<a href="javascript:;">
-									<img src="../assets/img/playing.jpg" alt="" />
+									<img src="../assets/img/playing.jpg" alt>
 									<span>张艾嘉</span>
 									<span>白猫妈妈 / 红发女人</span>
 								</a>
 							</li>
 							<li>
 								<a href="javascript:;">
-									<img src="../assets/img/playing.jpg" alt="" />
+									<img src="../assets/img/playing.jpg" alt>
 									<span>张艾嘉</span>
 									<span>白猫妈妈 / 红发女人</span>
 								</a>
 							</li>
 							<li>
 								<a href="javascript:;">
-									<img src="../assets/img/playing.jpg" alt="" />
+									<img src="../assets/img/playing.jpg" alt>
 									<span>张艾嘉</span>
 									<span>白猫妈妈 / 红发女人</span>
 								</a>
 							</li>
 						</ul>
-
 					</div>
 					<div class="star-all">
 						<a href="javascript:;">
@@ -127,17 +124,17 @@
 						<ul>
 							<li>
 								<a href="javascript:;">
-									<img src="../assets/img/playing.jpg" alt="" />
+									<img src="../assets/img/playing.jpg" alt>
 								</a>
 							</li>
-							<li v-for="(item,index) in detailMovie.photos" :key="index">
+							<!-- 图片缩略区域 -->
+							<vue-preview :list="list" :thumbImageStyle="{width: '90px', height: '70px', marginRight: '10px'}" :tapToClose="true" @close="closeHandler" @destroy="destroyHandler" />
+							<!-- <li v-for="(item,index) in detailMovie.photos" :key="index">
 								<a href="javascript:;">
 									<img :src="item|wh128x180" alt="" />
 								</a>
-							</li>
-
+							</li> -->
 						</ul>
-
 					</div>
 					<div class="link-group">
 						<a class="link-group-video" href="javascript:;">
@@ -165,7 +162,7 @@
 						<ul>
 							<li>
 								<a href="javascript:;">
-									<img src="../assets/img/playing.jpg" alt="" />
+									<img src="../assets/img/playing.jpg" alt>
 									<div class="perimeter-name">猫眼3D眼镜夹片</div>
 									<div class="perimeter-price">
 										<span>29.9元</span>
@@ -175,7 +172,7 @@
 							</li>
 							<li>
 								<a href="javascript:;">
-									<img src="../assets/img/playing.jpg" alt="" />
+									<img src="../assets/img/playing.jpg" alt>
 									<div class="perimeter-name">猫眼3D眼镜夹片</div>
 									<div class="perimeter-price">
 										<span>29.9元</span>
@@ -185,7 +182,7 @@
 							</li>
 							<li>
 								<a href="javascript:;">
-									<img src="../assets/img/playing.jpg" alt="" />
+									<img src="../assets/img/playing.jpg" alt>
 									<div class="perimeter-name">猫眼3D眼镜夹片</div>
 									<div class="perimeter-price">
 										<span>29.9元</span>
@@ -195,7 +192,7 @@
 							</li>
 							<li>
 								<a href="javascript:;">
-									<img src="../assets/img/playing.jpg" alt="" />
+									<img src="../assets/img/playing.jpg" alt>
 									<div class="perimeter-name">猫眼3D眼镜夹片</div>
 									<div class="perimeter-price">
 										<span>29.9元</span>
@@ -204,7 +201,6 @@
 								</a>
 							</li>
 						</ul>
-
 					</div>
 				</div>
 				<!--资讯-->
@@ -212,16 +208,13 @@
 					<div class="information-title">资讯</div>
 					<div class="information-content">
 						<a href="javascript:;">
-							<img src="../assets/img/playing.jpg" alt="" />
-							<div class="information-info">
-								厉害了中国电影！年度票房首破600亿，国产片完胜进口片！
-							</div>
+							<img src="../assets/img/playing.jpg" alt>
+							<div class="information-info">厉害了中国电影！年度票房首破600亿，国产片完胜进口片！</div>
 							<div class="information-right">
 								<span></span>
 							</div>
 						</a>
 					</div>
-
 				</div>
 				<!--排行-->
 				<div class="ranking-area">
@@ -253,30 +246,26 @@
 						<ul>
 							<li v-for="(item,index) in hotComments" :key="index">
 								<div class="comment-list-left">
-									<img :src="item.avatarUrl" alt="" />
+									<img :src="item.avatarUrl" alt>
 								</div>
 								<div class="comment-list-right">
 									<div class="comment-list-header">
 										<span>{{item.nick}}</span>
-										<img src="../assets/img/dengji.png" alt="" />
-										<div class="comment-list-score">
-											给这部电影打了{{item.score}}分
-										</div>
+										<img src="../assets/img/dengji.png" alt>
+										<div class="comment-list-score">给这部电影打了{{item.score}}分</div>
 									</div>
 									<div class="comment-list-content">
-										<a href="javascript:;">
-											{{item.content}}
-										</a>
+										<a href="javascript:;">{{item.content}}</a>
 									</div>
 									<div class="comment-list-bottom">
 										<span>17小时前</span>
 										<div class="pull-right">
 											<div class="goods">
-												<img src="../assets/img/goods.png" alt="" />
+												<img src="../assets/img/goods.png" alt>
 												<span>{{item.upCount}}</span>
 											</div>
 											<div class="discuss">
-												<img src="../assets/img/discuss.png" alt="" />
+												<img src="../assets/img/discuss.png" alt>
 												<span>{{item.replyCount}}</span>
 											</div>
 										</div>
@@ -295,48 +284,47 @@
 							<ul>
 								<li>
 									<a href="javascript:;">
-										<img src="../assets/img/playing.jpg" alt="" />
+										<img src="../assets/img/playing.jpg" alt>
 										<div class="related-content-title">江湖儿女</div>
 									</a>
 								</li>
 								<li>
 									<a href="javascript:;">
-										<img src="../assets/img/playing.jpg" alt="" />
+										<img src="../assets/img/playing.jpg" alt>
 										<div class="related-content-title">江湖儿女</div>
 									</a>
 								</li>
 								<li>
 									<a href="javascript:;">
-										<img src="../assets/img/playing.jpg" alt="" />
+										<img src="../assets/img/playing.jpg" alt>
 										<div class="related-content-title">江湖儿女</div>
 									</a>
 								</li>
 								<li>
 									<a href="javascript:;">
-										<img src="../assets/img/playing.jpg" alt="" />
+										<img src="../assets/img/playing.jpg" alt>
 										<div class="related-content-title">江湖儿女</div>
 									</a>
 								</li>
 								<li>
 									<a href="javascript:;">
-										<img src="../assets/img/playing.jpg" alt="" />
+										<img src="../assets/img/playing.jpg" alt>
 										<div class="related-content-title">江湖儿女</div>
 									</a>
 								</li>
 								<li>
 									<a href="javascript:;">
-										<img src="../assets/img/playing.jpg" alt="" />
+										<img src="../assets/img/playing.jpg" alt>
 										<div class="related-content-title">江湖儿女</div>
 									</a>
 								</li>
 								<li>
 									<a href="javascript:;">
-										<img src="../assets/img/playing.jpg" alt="" />
+										<img src="../assets/img/playing.jpg" alt>
 										<div class="related-content-title">江湖儿女</div>
 									</a>
 								</li>
 							</ul>
-
 						</div>
 					</div>
 				</div>
@@ -349,12 +337,8 @@
 						© 猫眼电影 客服电话:
 						<span>1010-5335</span>
 					</div>
-					<div class="icp">
-						京ICP备16022489号-1&nbsp;京公网安备11010502030881号
-					</div>
-					<div class="company">
-						北京猫眼文化传媒有限公司
-					</div>
+					<div class="icp">京ICP备16022489号-1&nbsp;京公网安备11010502030881号</div>
+					<div class="company">北京猫眼文化传媒有限公司</div>
 				</div>
 			</div>
 		</div>
@@ -363,51 +347,78 @@
 
 <script>
 	export default {
-		name: 'HelloWorld',
+		name: "movieDetail",
 		data() {
 			return {
 				detailMovie: {},
 				hotComments: [],
-				total: '',
+				total: "",
 				showDetail: 0,
 				preloading: true,
-				showContent: false
-			}
+				showContent: false,
+				list: []
+			};
 		},
 		created() {
 			//接受movie传过来的id
-			var id = this.$route.params.id
+			var id = this.$route.params.id;
 			//电影信息
 			this.request.getMovieDetail({
 					movieId: id
-				}, (data) => {
-					//console.log(data)
-					this.detailMovie = data.detailMovie
-				}),
-				//评论数据
-				this.request.getCommentsList({
+				},
+				data => {
+					//console.log(data.detailMovie.photos)
+					this.detailMovie = data.detailMovie;
+
+					var list = data.detailMovie.photos;
+					var photoList = [];
+					for(var i = 0; i < list.length; i++) {
+						var img = list[i];
+						//console.log(img)
+						var dict = {
+							src: img,
+							w: 600,
+							h: 400
+						};
+						photoList.push(dict);
+					}
+
+					this.list = photoList;
+					//console.log(this.list);
+				}
+			);
+			//评论数据
+			this.request.getCommentsList({
 					movieId: id
-				}, (data) => {
+				},
+				data => {
 					//console.log(data)
-					this.hotComments = data.data.hotComments
-					this.total = data.paging.total
-					this.preloading = false
-					this.showContent = true
-
-				})
-
+					this.hotComments = data.data.hotComments;
+					this.total = data.paging.total;
+					this.preloading = false;
+					this.showContent = true;
+				}
+			);
 		},
 		methods: {
 			//电影简介
 			dealShow() {
 				if(this.showDetail == 1) {
-					this.showDetail = 0
+					this.showDetail = 0;
 				} else {
-					this.showDetail = 1
+					this.showDetail = 1;
 				}
+			},
+			// 即将关闭的时候，调用这个处理函数
+			closeHandler() {
+				//console.log("closeHandler");
+			},
+			// 完全关闭之后，调用这个函数清理资源
+			destroyHandler() {
+				//console.log("destroyHandler");
 			}
 		}
-	}
+	};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -436,8 +447,8 @@
 		filter: blur(25px);
 		background-size: cover;
 		background-repeat: no-repeat;
-		opacity: .55;
-		background-image: url(../assets/img/playing.jpg)
+		opacity: 0.55;
+		background-image: url(../assets/img/playing.jpg);
 	}
 	
 	.movie-detail-box {
@@ -487,7 +498,7 @@
 		margin-bottom: 8px;
 		font-size: 12px;
 		color: #fff;
-		opacity: .8;
+		opacity: 0.8;
 	}
 	
 	.movie-score {
@@ -512,7 +523,7 @@
 	
 	.movie-score-number {
 		color: #fff;
-		opacity: .7;
+		opacity: 0.7;
 		font-size: 10px;
 		margin-top: 2px;
 		margin-bottom: 4px;
@@ -522,7 +533,7 @@
 		margin-bottom: 8px;
 		font-size: 12px;
 		color: #fff;
-		opacity: .8;
+		opacity: 0.8;
 	}
 	
 	.movie-type span {
@@ -532,7 +543,7 @@
 	.movie-type-img {
 		display: inline-block;
 		width: 42px;
-		opacity: .85;
+		opacity: 0.85;
 	}
 	
 	.movie-type-img img {
@@ -543,14 +554,14 @@
 		margin-bottom: 8px;
 		font-size: 12px;
 		color: #fff;
-		opacity: .8;
+		opacity: 0.8;
 	}
 	
 	.movie-date {
 		margin-bottom: 8px;
 		font-size: 12px;
 		color: #fff;
-		opacity: .8;
+		opacity: 0.8;
 	}
 	
 	.box-all {
@@ -582,7 +593,6 @@
 		border: 0;
 		outline: none;
 	}
-	
 	
 	.introduction-content-text {
 		font-size: 16px;
@@ -640,7 +650,7 @@
 		width: 26px;
 		height: 26px;
 		float: left;
-		margin-top: 7px
+		margin-top: 7px;
 	}
 	
 	.tips-content span {
@@ -751,7 +761,7 @@
 		font-size: 15px;
 		height: 40px;
 		line-height: 40px;
-		padding: 0 10px
+		padding: 0 10px;
 	}
 	
 	.media-scroll {
@@ -764,6 +774,10 @@
 		overflow-x: scroll;
 		white-space: nowrap;
 		margin-bottom: 3px;
+	}
+	
+	.thumbs img {
+		margin-right: 10px;
 	}
 	
 	.media-area ul li {
@@ -790,7 +804,6 @@
 		width: 125px;
 		height: 70px;
 	}
-	
 	
 	.link-group-video {
 		display: inline-block;
@@ -1100,7 +1113,6 @@
 		width: calc(100% - 45px);
 	}
 	
-	
 	.comment-list-header span {
 		color: #333;
 		font-size: 14px;
@@ -1150,7 +1162,7 @@
 		color: #999;
 		margin-left: 10px;
 		font-size: 12px;
-		border: 1px solid #CCCCCC;
+		border: 1px solid #cccccc;
 		border-radius: 20px;
 		padding: 3px 8px;
 	}

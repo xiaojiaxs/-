@@ -244,15 +244,6 @@
 					this.locationState = 3
 				}
 			}
-		},
-		computed: {
-
-		},
-		watch: {
-
-		},
-		computents: {
-
 		}
 	}
 </script>

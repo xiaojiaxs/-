@@ -289,6 +289,7 @@
 	
 	.cinema-choice-item {
 		flex: 1;
+		width: 33.3%;
 		text-align: center;
 		line-height: 40px;
 		position: relative;
@@ -389,7 +390,7 @@
 	}
 	.wrapper-button ul li.active{
 		color: #f03d37;
-    background: #f5f5f5;
+    	background: #f5f5f5;
 	}
 	
 	.wrapper-content {
@@ -424,18 +425,17 @@
 	}
 	
 	.wrapper-content ul li span:nth-of-type(2) {
-		display: inline-block;
+		display: block;
 		float: left;
 		width: 80%;
 		font-size: 14px;
-		
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		overflow: hidden;
 	}
 	
 	.wrapper-content ul li span:nth-of-type(3) {
-		display: inline-block;
+		display: block;
 		float: right;
 		width: 20px;
 		margin-right: 10px;
@@ -493,14 +493,14 @@
 	}
 	
 	.brind-item span:nth-of-type(2) {
-		display: inline-block;
+		display: block;
 		float: left;
 		
 		font-size: 15px;
 	}
 	
 	.brind-item span:nth-of-type(3) {
-		display: inline-block;
+		display: block;
 		float: right;
 		font-size: 12px;
 	}

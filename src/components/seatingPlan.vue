@@ -391,6 +391,9 @@
 		height: 222px;
 		overflow: scroll;
 	}
+	.select-block{
+		height: 222px;
+	}
 	
 	.seat-block-wrap {
 		visibility: visible;
@@ -400,13 +403,11 @@
 		position: relative;
 		z-index: 1;
 	}
-	
-	
+
 	.wrap {
 		display: inline-block;
 		padding: 6px 3px;
 	}
-	
 	
 	.seat {
 		width: 40px;

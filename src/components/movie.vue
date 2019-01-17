@@ -351,7 +351,7 @@
 	
 	.most-expect {
 		width: 100%;
-		padding: 12px 0 12px 15px;
+		padding: 12px 15px;
 		background-color: #fff;
 		margin-bottom: 10px;
 		box-sizing: border-box;
@@ -374,6 +374,9 @@
 		width: 85px;
 		overflow: hidden;
 		margin-right: 10px;
+	}
+	.expected-item:last-child{
+		margin-right:0;
 	}
 	
 	.expected-item-img {
